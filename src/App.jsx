@@ -10,7 +10,7 @@ import Layout from "./pages/Layout";
 // import { Navigate } from "react-router-dom";
 function App() {
 
-    const currentUser = false;
+    const currentUser = true;
     // const Layout = () => {
     //   return (
     //     <div>
@@ -24,7 +24,7 @@ function App() {
     //   );
     // };
 
-    const protectedRoute=({children})=>{
+    const ProtectedRoute=({children})=>{
       console.log(currentUser);
     if(!currentUser){
       return <Navigate to = "/login"/>;
@@ -34,20 +34,20 @@ function App() {
   const router = createBrowserRouter([
     {
       path:'/',
-      element:(<protectedRoute>
+      element:(<ProtectedRoute>
         <Layout/>
-      </protectedRoute>
+      </ProtectedRoute>
         ),
-      // children:[
-      //   {
-      //     path:'/',
-      //     element:<Home/>,
-      //   },
-      //   {
-      //     path:'/profile/:id',
-      //     element:<Profile/>,
-      //   },
-      // ],
+      children:[
+        {
+          path:'/',
+          element:<Home/>,
+        },
+        {
+          path:'/profile/:id',
+          element:<Profile/>,
+        },
+      ],
     },
     {
       path:'/login',

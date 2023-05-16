@@ -9,9 +9,9 @@ function Layout() {
         <div>
           <NavBar/>
           <div className="flex">
-            <LeftBar/>
+            {/* <LeftBar/> */}
             <Outlet/>
-            <RightBar/>
+            {/* <RightBar/> */}
           </div>
         </div>
   )
